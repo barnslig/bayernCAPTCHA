@@ -13,17 +13,15 @@ const ImageselectMolecule = () => (state, actions) => (
       {state.imageselect.headline} <strong>{state.imageselect.data.copy}</strong>
     </div>
     <div class="m-bayerncaptcha-imageselect__options">
-      {state.imageselect.data.options
-        .map((option, i) => (
-          <ImageselectOptionAtom
-            id={`${state.id}-option-${i}`}
-            imgSrc={`${state.imageselect.dataBasePath}/${state.imageselect.dataCurrentVariant}/${option.img}`}
-            onChange={() => {
-              actions.imageselect.toggleSelectedOption(i);
-            }}
-          />
-        ))
-        .sort(() => Math.random() - 0.5)}
+      {state.imageselect.data.options.map((option, i) => (
+        <ImageselectOptionAtom
+          id={`${state.id}-option-${i}`}
+          imgSrc={`${state.imageselect.dataBasePath}/${state.imageselect.dataCurrentVariant}/${option.img}`}
+          onChange={() => {
+            actions.imageselect.toggleSelectedOption(i);
+          }}
+        />
+      ))}
     </div>
     <div class="m-bayerncaptcha-imageselect__footer">
       {state.imageselect.isErroneous

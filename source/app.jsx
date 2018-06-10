@@ -68,7 +68,9 @@ const createBayernCaptcha = ($elem, id) => {
 
         const req = new XMLHttpRequest();
         req.addEventListener('load', (response) => {
-          actions.setData(JSON.parse(req.responseText));
+          const data = JSON.parse(req.responseText);
+          data.options = data.options.sort(() => Math.random() - 0.5);
+          actions.setData(data);
           actions.setVisible(true);
         });
         req.open('GET', `${state.dataBasePath}/${current}/data.json`);
