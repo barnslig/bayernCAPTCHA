@@ -11,6 +11,7 @@
     "autoprefixer": "^8.6.2",
     "babel-loader": "^8.0.0-beta",
     "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
     "postcss-loader": "^2.1.5",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
