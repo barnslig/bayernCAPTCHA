@@ -1,0 +1,66 @@
+.a-bayerncaptcha-imageselect-option {
+  &, * {
+    box-sizing: border-box;
+  }
+
+  &__checkbox {
+    /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  &__label {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    padding: 2px;
+    transition: transform 0.1s ease;
+  }
+
+  &__checkbox:checked + &__label {
+    transform: scale(0.9);
+  }
+
+  &__label-indicator {
+    position: absolute;
+    background: #4a90e2;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    top: -6px;
+    left: -6px;
+    transition: transform 0.1s ease;
+    transform: scale(0);
+  }
+
+  &__checkbox:checked + &__label &__label-indicator {
+    transform: scale(1);
+  }
+
+  &__label-indicator svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    height: 0;
+    padding-top: 100%;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.m-bayerncaptcha-imageselect__options .a-bayerncaptcha-imageselect-option {
+  flex: 1 1 33.33%;
+  width: 33.33%;
+}

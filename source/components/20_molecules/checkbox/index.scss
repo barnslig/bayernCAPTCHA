@@ -1,0 +1,111 @@
+.m-bayerncaptcha-checkbox {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 3px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.08);
+  height: 74px;
+  width: 300px;
+
+  &, * {
+    box-sizing: border-box;
+  }
+
+  &__input {
+    /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    width: 0;
+    height: 0;
+    margin: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  &__clicker {
+    position: relative;
+    margin: 0 15px 0 20px;
+  }
+
+  &__clicker-box {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border: 2px solid #c1c1c1;
+    border-radius: 2px;
+    transition: opacity 0.5s ease;
+
+    &--is-clicked {
+      cursor: default;
+      animation: m-bayerncaptcha-checkbox__clicker-box--is-clicked 0.6s ease;
+    }
+
+    &--is-solved {
+      cursor: default;
+      opacity: 0;
+    }
+  }
+
+  &__clicker-box:not(&__clicker-box--is-clicked):hover {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  &__clicker-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+
+    &--is-solved {
+      transition-delay: 0.5s;
+      opacity: 1;
+    }
+  }
+
+  &__clicker-checkmark svg {
+    width: 28px;
+    height: 28px;
+    fill: #009e55;
+  }
+
+  &__label {
+    flex: 1;
+    font-size: 14px;
+  }
+
+  &__logo {
+    text-align: center;
+    margin: 0 10px 0;
+  }
+
+  &__logo-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo-image svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__logo-caption {
+    color: #555;
+    font-size: 10px;
+  }
+}
+
+  @keyframes m-bayerncaptcha-checkbox__clicker-box--is-clicked {
+    50% {
+      border-radius: 100%;
+      transform: scale(0);
+    }
+    100% {
+      border-radius: 2px;
+      transform: scale(1);
+    }
+  }

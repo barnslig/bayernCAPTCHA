@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>bayernCaptcha</title>
+    <style>
+    .input-group {
+      display: flex;
+      font-family: sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      width: 150px;
+      padding-right: 15px;
+      text-align: right;
+    }
+
+    .captcha, .submit {
+      margin-left: 165px;
+      margin-bottom: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Kummerkasten</h1>
+    <form data-bayerncaptcha-form>
+      <div class="input-group">
+        <label for="name">Dein Name:</label>
+        <input type="text" id="name" required />
+      </div>
+      <div class="input-group">
+        <label for="msg">Deine Nachricht:</label>
+        <textarea id="msg" required></textarea>
+      </div>
+      <div class="captcha" data-bayerncaptcha></div>
+      <button class="submit" type="submit">Ab die Post</button>
+    </form>
+
+    <script src="app.js"></script>
+  </body>
+</html>

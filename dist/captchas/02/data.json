@@ -1,0 +1,41 @@
+{
+  "copy": "kriminellen",
+  "options": [
+    {
+      "img": "k-1.jpeg",
+      "required": false
+    },
+    {
+      "img": "k-2.jpeg",
+      "required": false
+    },
+    {
+      "img": "b-1.jpeg",
+      "required": true
+    },
+    {
+      "img": "k-3.jpeg",
+      "required": false
+    },
+    {
+      "img": "k-4.jpeg",
+      "required": false
+    },
+    {
+      "img": "b-2.jpeg",
+      "required": true
+    },
+    {
+      "img": "k-5.jpeg",
+      "required": false
+    },
+    {
+      "img": "k-6.jpeg",
+      "required": false
+    },
+    {
+      "img": "b-3.jpeg",
+      "required": true
+    }
+  ]
+}

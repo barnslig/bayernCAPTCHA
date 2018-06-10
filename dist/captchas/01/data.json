@@ -1,0 +1,41 @@
+{
+  "copy": "verfassungsfeindlichen Symbolen",
+  "options": [
+    {
+      "img": "nazi-1.jpeg",
+      "required": false
+    },
+    {
+      "img": "nazi-2.jpeg",
+      "required": false
+    },
+    {
+      "img": "antifa-1.jpeg",
+      "required": true
+    },
+    {
+      "img": "nazi-3.jpeg",
+      "required": false
+    },
+    {
+      "img": "nazi-4.jpeg",
+      "required": false
+    },
+    {
+      "img": "antifa-2.jpeg",
+      "required": true
+    },
+    {
+      "img": "nazi-5.jpeg",
+      "required": false
+    },
+    {
+      "img": "nazi-6.jpeg",
+      "required": false
+    },
+    {
+      "img": "antifa-3.jpeg",
+      "required": true
+    }
+  ]
+}
