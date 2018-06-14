@@ -13,7 +13,8 @@ const createBayernCaptcha = ($elem, id) => {
     imageselect: {
       headline: 'Wählen Sie alle Bilder mit',
       errorCopy: 'Bitte überprüfen Sie ihre Auswahl.',
-      buttonCopy: 'Weiter',
+      reloadButtonTitle: 'Anderes Captcha laden',
+      submitButtonCopy: 'Weiter',
 
       isVisible: false,
       isErroneous: false,
@@ -59,18 +60,26 @@ const createBayernCaptcha = ($elem, id) => {
           ? state.selectedOptions.concat([selectedOption])
           : state.selectedOptions.filter(option => option !== selectedOption),
       }),
+      resetSelectedOptions: () => () => ({ selectedOptions: [] }),
 
       setDataCurrentVariant: (dataCurrentVariant) => () => ({ dataCurrentVariant }),
       setData: (data) => () => ({ data }),
       loadData: () => (state, actions) => {
-        const current = state.dataVariants[Math.floor(Math.random() * state.dataVariants.length)];
-        actions.setDataCurrentVariant(current);
+        // make sure to choose another variant
+        const availableVariants = state.dataVariants.length > 1
+          ? state.dataVariants.filter(variant => variant !== state.dataCurrentVariant)
+          : state.dataVariants;
+
+        const current = availableVariants[Math.floor(Math.random() * availableVariants.length)];
 
         const req = new XMLHttpRequest();
         req.addEventListener('load', (response) => {
           const data = JSON.parse(req.responseText);
           data.options = data.options.sort(() => Math.random() - 0.5);
           actions.setData(data);
+          actions.setDataCurrentVariant(current);
+          actions.setErroneous(false);
+          actions.resetSelectedOptions();
           actions.setVisible(true);
         });
         req.open('GET', `${state.dataBasePath}/${current}/data.json`);

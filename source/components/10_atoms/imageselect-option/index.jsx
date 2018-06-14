@@ -4,7 +4,7 @@ import CheckmarkIcon from '../../40_icons/checkmark';
 
 import './index.scss';
 
-const ImageSelectOptionAtom = ({ id, imgSrc, onChange }) => (
+const ImageSelectOptionAtom = ({ id, imgSrc, checked, onChange }) => (
   <div class="a-bayerncaptcha-imageselect-option">
     <input
       class="a-bayerncaptcha-imageselect-option__checkbox"
@@ -12,6 +12,7 @@ const ImageSelectOptionAtom = ({ id, imgSrc, onChange }) => (
       name="option"
       value={id}
       type="checkbox"
+      checked={checked}
       onchange={onChange}
     />
     <label for={id} class="a-bayerncaptcha-imageselect-option__label">

@@ -1,6 +1,7 @@
 import { h } from 'hyperapp';
 
 import ImageselectOptionAtom from '../../10_atoms/imageselect-option';
+import RefreshIcon from '../../40_icons/refresh';
 
 import './index.scss';
 
@@ -17,6 +18,7 @@ const ImageselectMolecule = () => (state, actions) => (
         <ImageselectOptionAtom
           id={`${state.id}-option-${i}`}
           imgSrc={`${state.imageselect.dataBasePath}/${state.imageselect.dataCurrentVariant}/${option.img}`}
+          checked={state.imageselect.selectedOptions.indexOf(i) !== -1}
           onChange={() => {
             actions.imageselect.toggleSelectedOption(i);
           }}
@@ -28,13 +30,23 @@ const ImageselectMolecule = () => (state, actions) => (
         ? <div class="m-bayerncaptcha-imageselect__footer-error">{state.imageselect.errorCopy}</div>
         : null}
       <button
-        class="m-bayerncaptcha-imageselect__footer-btn"
+        class="m-bayerncaptcha-imageselect__footer-icon-btn"
+        title={state.imageselect.reloadButtonTitle}
+        onclick={(ev) => {
+          ev.preventDefault();
+          actions.imageselect.loadData();
+        }}
+      >
+        <RefreshIcon title={state.imageselect.reloadButtonTitle} />
+      </button>
+      <button
+        class="m-bayerncaptcha-imageselect__footer-submit-btn"
         onclick={(ev) => {
           ev.preventDefault();
           actions.checkResult();
         }}
       >
-        {state.imageselect.buttonCopy}
+        {state.imageselect.submitButtonCopy}
       </button>
     </div>
   </div>
